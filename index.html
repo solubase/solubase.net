@@ -2,36 +2,101 @@
 <html lang="ko">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="(주)솔루베이스는 네이버 스마트스토어·쿠팡 셀러를 위한 판매 분석 서비스 셀러베이스를 만듭니다. 상품 순위 추적, 경쟁 스토어 분석, 키워드 경쟁 강도 분석을 제공합니다.">
-  <meta name="keywords" content="솔루베이스, 셀러베이스, 스마트스토어 순위 추적, 네이버쇼핑 순위, 쿠팡 순위 추적, 키워드 분석, 셀러 분석 도구">
-  <meta name="author" content="(주)솔루베이스">
-  <title>(주)솔루베이스 | 셀러베이스 개발사</title>
-  <link rel="shortcut icon" href="./assets/img/favicon.png">
-  <link rel="stylesheet" href="./assets/css/plugins.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <!-- 한글 폰트: Pretendard -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <style>
-    body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .btn, .nav-link, .dropdown-item, .lead {
-      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-    }
-    body { word-break: keep-all; }
-    /* 텍스트 로고 */
-    .brand-logo { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; line-height: 1; }
-    .brand-logo .brand-mark { width: 34px; height: 34px; border-radius: 9px; flex: none;
-      background: linear-gradient(135deg, #1b2b4b 0%, #2bb6d6 100%); display: inline-flex; align-items: center; justify-content: center; }
-    .brand-logo .brand-s { color: #fff; font-size: 1.25rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
-    .brand-logo .brand-name { display: flex; flex-direction: column; gap: 3px; }
-    .brand-logo .brand-ko { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.02em; color: #1b2b4b; }
-    .brand-logo .brand-en { font-size: .6rem; font-weight: 700; letter-spacing: .22em; color: #2bb6d6; }
-    .brand-logo.brand-light .brand-ko { color: #fff; }
-    .brand-logo.brand-light .brand-en { color: #8fdcec; }
-    .navbar .logo-light { display: none !important; }
-    .navbar.navbar-dark .logo-light { display: inline-flex !important; }
-    .navbar.navbar-dark .logo-dark { display: none !important; }
-  </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="(주)솔루베이스는 네이버 스마트스토어·쿠팡 셀러를 위한 판매 분석 서비스 셀러베이스를 만듭니다. 상품 순위 추적, 경쟁 스토어 분석, 키워드 경쟁 강도 분석을 제공합니다.">
+    <meta name="keywords" content="솔루베이스, 셀러베이스, 스마트스토어 순위 추적, 네이버쇼핑 순위, 쿠팡 순위 추적, 키워드 분석, 셀러 분석 도구">
+    <meta name="author" content="(주)솔루베이스">
+
+    <meta property="og:url" content="https://www.solubase.net">
+    <meta property="og:title" content="(주)솔루베이스">
+    <meta property="og:description" content="네이버 스마트스토어 셀러를 위한 상품 순위·키워드 분석 도구입니다. 내 상품의 검색 순위와 경쟁 현황을 한눈에 확인하고, 잘 팔리는 키워드를 찾아 매출을 높이세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.sellerbase.co.kr/_content/SellerBase101.Shared/images/sellerbase_og_kakaotalk_v3.png">
+    <meta property="og:site_name" content="(주)솔루베이스">
+
+    <title>(주)솔루베이스 | 셀러베이스 개발사</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.png">
+    <link rel="stylesheet" href="./assets/css/plugins.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- 한글 폰트: Pretendard -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <style>
+        body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .btn, .nav-link, .dropdown-item, .lead {
+            font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+        }
+
+        body {
+            word-break: keep-all;
+        }
+        /* 텍스트 로고 */
+        .brand-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: .55rem;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+            .brand-logo .brand-mark {
+                width: 34px;
+                height: 34px;
+                border-radius: 9px;
+                flex: none;
+                background: linear-gradient(135deg, #1b2b4b 0%, #2bb6d6 100%);
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .brand-logo .brand-s {
+                color: #fff;
+                font-size: 1.25rem;
+                font-weight: 800;
+                line-height: 1;
+                letter-spacing: -0.02em;
+            }
+
+            .brand-logo .brand-name {
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+            }
+
+            .brand-logo .brand-ko {
+                font-size: 1.2rem;
+                font-weight: 800;
+                letter-spacing: -0.02em;
+                color: #1b2b4b;
+            }
+
+            .brand-logo .brand-en {
+                font-size: .6rem;
+                font-weight: 700;
+                letter-spacing: .22em;
+                color: #2bb6d6;
+            }
+
+            .brand-logo.brand-light .brand-ko {
+                color: #fff;
+            }
+
+            .brand-logo.brand-light .brand-en {
+                color: #8fdcec;
+            }
+
+        .navbar .logo-light {
+            display: none !important;
+        }
+
+        .navbar.navbar-dark .logo-light {
+            display: inline-flex !important;
+        }
+
+        .navbar.navbar-dark .logo-dark {
+            display: none !important;
+        }
+    </style>
 </head>
 
 <body>
