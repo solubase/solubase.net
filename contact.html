@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="셀러베이스 자주 묻는 질문과 (주)솔루베이스 문의하기, 오시는 길을 안내합니다.">
+    <meta name="author" content="(주)솔루베이스">
+    <title>고객지원 | (주)솔루베이스</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.png">
+    <link rel="stylesheet" href="./assets/css/plugins.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <style>
+        body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .btn, .nav-link, .dropdown-item, .lead {
+            font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+        }
+
+        body {
+            word-break: keep-all;
+        }
+        /* 텍스트 로고 */
+        .brand-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: .55rem;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+            .brand-logo .brand-mark {
+                width: 34px;
+                height: 34px;
+                border-radius: 9px;
+                flex: none;
+                background: linear-gradient(135deg, #1b2b4b 0%, #2bb6d6 100%);
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .brand-logo .brand-s {
+                color: #fff;
+                font-size: 1.25rem;
+                font-weight: 800;
+                line-height: 1;
+                letter-spacing: -0.02em;
+            }
+
+            .brand-logo .brand-name {
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+            }
+
+            .brand-logo .brand-ko {
+                font-size: 1.2rem;
+                font-weight: 800;
+                letter-spacing: -0.02em;
+                color: #1b2b4b;
+            }
+
+            .brand-logo .brand-en {
+                font-size: .6rem;
+                font-weight: 700;
+                letter-spacing: .22em;
+                color: #2bb6d6;
+            }
+
+            .brand-logo.brand-light .brand-ko {
+                color: #fff;
+            }
+
+            .brand-logo.brand-light .brand-en {
+                color: #8fdcec;
+            }
+
+        .navbar .logo-light {
+            display: none !important;
+        }
+
+        .navbar.navbar-dark .logo-light {
+            display: inline-flex !important;
+        }
+
+        .navbar.navbar-dark .logo-dark {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content-wrapper">
+        <header class="wrapper bg-soft-primary">
+            <nav class="navbar navbar-expand-lg center-nav transparent position-absolute navbar-dark">
+                <div class="container flex-lg-row flex-nowrap align-items-center">
+                    <div class="navbar-brand w-100">
+                        <a href="./index.html">
+                            <span class="brand-logo logo-dark" role="img" aria-label="(주)솔루베이스"><span class="brand-mark"><span class="brand-s">S</span></span><span class="brand-name"><span class="brand-ko">솔루베이스</span><span class="brand-en">SOLUBASE</span></span></span>
+                            <span class="brand-logo brand-light logo-light" role="img" aria-label="(주)솔루베이스"><span class="brand-mark"><span class="brand-s">S</span></span><span class="brand-name"><span class="brand-ko">솔루베이스</span><span class="brand-en">SOLUBASE</span></span></span>
+                        </a>
+                    </div>
+                    <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
+                        <div class="offcanvas-header d-lg-none">
+                            <h3 class="text-white fs-30 mb-0">솔루베이스</h3>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="닫기"></button>
+                        </div>
+                        <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">회사소개</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="dropdown-item" href="./about.html">회사 개요</a></li>
+                                        <li class="nav-item"><a class="dropdown-item" href="./about.html#ceo">대표 인사말</a></li>
+                                        <li class="nav-item"><a class="dropdown-item" href="./about.html#history">연혁</a></li>
+                                        <li class="nav-item"><a class="dropdown-item" href="./contact.html#map">오시는 길</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">서비스</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="dropdown-item" href="./service.html">셀러베이스 소개</a></li>
+                                        <li class="nav-item"><a class="dropdown-item" href="./service.html#how">이용 방법</a></li>
+                                        <li class="nav-item"><a class="dropdown-item" href="./service.html#use-cases">이런 분께 추천합니다</a></li>
+                                        <li class="nav-item"><a class="dropdown-item" href="./service.html#partnership">도입·제휴</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="./news.html">뉴스룸</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">고객지원</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="dropdown-item" href="./contact.html#faq">자주 묻는 질문</a></li>
+                                        <li class="nav-item"><a class="dropdown-item" href="./contact.html#form">문의하기</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <!-- /.navbar-nav -->
+                            <div class="offcanvas-footer d-lg-none">
+                                <div>
+                                    <a href="mailto:solubase@kakao.com" class="link-inverse">solubase@kakao.com</a>
+                                    <br /> [대표 전화번호]
+                                </div>
+                            </div>
+                            <!-- /.offcanvas-footer -->
+                        </div>
+                        <!-- /.offcanvas-body -->
+                    </div>
+                    <!-- /.navbar-collapse -->
+                    <div class="navbar-other w-100 d-flex ms-auto">
+                        <ul class="navbar-nav flex-row align-items-center ms-auto">
+                            <li class="nav-item">
+                                <a href="https://www.sellerbase.co.kr" target="_blank" rel="noopener" class="btn btn-sm btn-white rounded text-nowrap">셀러베이스 시작하기</a>
+                            </li>
+                            <li class="nav-item d-lg-none">
+                                <button class="hamburger offcanvas-nav-btn"><span></span></button>
+                            </li>
+                        </ul>
+                        <!-- /.navbar-nav -->
+                    </div>
+                    <!-- /.navbar-other -->
+                </div>
+                <!-- /.container -->
+            </nav>
+            <!-- /.navbar -->
+        </header>
+        <!-- /header -->
+        <section class="wrapper image-wrapper bg-image bg-overlay bg-overlay-400 text-white" data-image-src="./assets/img/photos/bg3.jpg">
+            <div class="container pt-17 pb-20 pt-md-19 pb-md-21 text-center">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h1 class="display-1 mb-3 text-white">고객지원</h1>
+                        <nav class="d-inline-block" aria-label="breadcrumb">
+                            <ol class="breadcrumb text-white">
+                                <li class="breadcrumb-item"><a href="./index.html">홈</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">고객지원</li>
+                            </ol>
+                        </nav>
+                        <!-- /nav -->
+                    </div>
+                    <!-- /column -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+        <!-- /section -->
+        <section class="wrapper bg-light angled upper-end">
+            <div class="container pb-11">
+                <!-- 오시는 길 -->
+                <div id="map" class="row mb-14 mb-md-16">
+                    <div class="col-xl-10 mx-auto mt-n19">
+                        <div class="card">
+                            <div class="row gx-0">
+                                <div class="col-lg-6 align-self-stretch">
+                                    <div class="map map-full rounded-top rounded-lg-start">
+                                        <!-- q= 뒤에 실제 주소를 넣으세요 -->
+                                        <iframe src="https://www.google.com/maps?q=[주소]&output=embed" style="width:100%; height: 100%; border:0" allowfullscreen loading="lazy" title="(주)솔루베이스 위치"></iframe>
+                                    </div>
+                                    <!-- /.map -->
+                                </div>
+                                <!--/column -->
+                                <div class="col-lg-6">
+                                    <div class="p-10 p-md-11 p-lg-14">
+                                        <div class="d-flex flex-row">
+                                            <div>
+                                                <div class="icon text-primary fs-28 me-4 mt-n1"> <i class="uil uil-location-pin-alt"></i> </div>
+                                            </div>
+                                            <div class="align-self-start justify-content-start">
+                                                <h5 class="mb-1">주소</h5>
+                                                <address>[주소]<br />[대중교통 안내: 00역 0번 출구 도보 0분]</address>
+                                            </div>
+                                        </div>
+                                        <!--/div -->
+                                        <div class="d-flex flex-row">
+                                            <div>
+                                                <div class="icon text-primary fs-28 me-4 mt-n1"> <i class="uil uil-phone-volume"></i> </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1">전화</h5>
+                                                <p>[대표 전화번호]</p>
+                                            </div>
+                                        </div>
+                                        <!--/div -->
+                                        <div class="d-flex flex-row">
+                                            <div>
+                                                <div class="icon text-primary fs-28 me-4 mt-n1"> <i class="uil uil-envelope"></i> </div>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1">이메일</h5>
+                                                <p class="mb-0"><a href="mailto:solubase@kakao.com" class="link-body">solubase@kakao.com</a></p>
+                                            </div>
+                                        </div>
+                                        <!--/div -->
+                                    </div>
+                                    <!--/div -->
+                                </div>
+                                <!--/column -->
+                            </div>
+                            <!--/.row -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /column -->
+                </div>
+                <!-- /.row -->
+                <!-- 자주 묻는 질문 -->
+                <div id="faq" class="row mb-14 mb-md-16">
+                    <div class="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+                        <h2 class="display-4 mb-3 text-center">자주 묻는 질문</h2>
+                        <p class="lead text-center mb-10">셀러베이스 사용법은 셀러베이스 사이트의 도움말에서 더 자세히 볼 수 있습니다.</p>
+                        <div class="accordion accordion-wrapper" id="faq-list">
+                            <div class="card plain accordion-item">
+                                <div class="card-header" id="faq-h1">
+                                    <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq-c1" aria-expanded="true" aria-controls="faq-c1">어떤 마켓을 지원하나요?</button>
+                                </div>
+                                <div id="faq-c1" class="accordion-collapse collapse show" aria-labelledby="faq-h1" data-bs-parent="#faq-list">
+                                    <div class="card-body">
+                                        <p>네이버쇼핑·스마트스토어·네이버 블로그·스마트플레이스와 쿠팡을 지원합니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card plain accordion-item">
+                                <div class="card-header" id="faq-h2">
+                                    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq-c2" aria-expanded="false" aria-controls="faq-c2">어떻게 가입하나요?</button>
+                                </div>
+                                <div id="faq-c2" class="accordion-collapse collapse" aria-labelledby="faq-h2" data-bs-parent="#faq-list">
+                                    <div class="card-body">
+                                        <p>셀러베이스 사이트나 앱에서 카카오 계정으로 가입합니다. 사업자·단체용 카카오 계정은 지원하지 않으니 개인 카카오 계정으로 로그인해 주세요.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card plain accordion-item">
+                                <div class="card-header" id="faq-h3">
+                                    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq-c3" aria-expanded="false" aria-controls="faq-c3">크롬 확장 프로그램을 꼭 설치해야 하나요?</button>
+                                </div>
+                                <div id="faq-c3" class="accordion-collapse collapse" aria-labelledby="faq-h3" data-bs-parent="#faq-list">
+                                    <div class="card-body">
+                                        <p>순위 수집과 상품 분석 기능은 크롬 확장 프로그램 "셀러베이스 도구"를 통해 동작합니다. 수집된 결과는 웹과 앱 어디서나 볼 수 있습니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card plain accordion-item">
+                                <div class="card-header" id="faq-h4">
+                                    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq-c4" aria-expanded="false" aria-controls="faq-c4">요금은 얼마인가요?</button>
+                                </div>
+                                <div id="faq-c4" class="accordion-collapse collapse" aria-labelledby="faq-h4" data-bs-parent="#faq-list">
+                                    <div class="card-body">
+                                        <p>요금제와 이용 범위는 셀러베이스 사이트의 요금제 안내에서 확인하실 수 있습니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card plain accordion-item">
+                                <div class="card-header" id="faq-h5">
+                                    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq-c5" aria-expanded="false" aria-controls="faq-c5">탈퇴하면 데이터는 어떻게 되나요?</button>
+                                </div>
+                                <div id="faq-c5" class="accordion-collapse collapse" aria-labelledby="faq-h5" data-bs-parent="#faq-list">
+                                    <div class="card-body">
+                                        <p>셀러베이스의 회원 탈퇴 메뉴에서 탈퇴할 수 있으며, 탈퇴하면 계정 정보가 삭제됩니다. 결제 기록은 관련 법령에 따라 정해진 기간 보관됩니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card plain accordion-item">
+                                <div class="card-header" id="faq-h6">
+                                    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq-c6" aria-expanded="false" aria-controls="faq-c6">제휴나 단체 도입도 가능한가요?</button>
+                                </div>
+                                <div id="faq-c6" class="accordion-collapse collapse" aria-labelledby="faq-h6" data-bs-parent="#faq-list">
+                                    <div class="card-body">
+                                        <p>가능합니다. 아래 문의하기에서 문의 유형을 "도입·제휴"로 선택해 남겨 주세요.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /column -->
+                </div>
+                <!-- /.row -->
+                <!-- 문의하기 -->
+                <div id="form" class="row">
+                    <div class="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+                        <h2 class="display-4 mb-3 text-center">문의하기</h2>
+                        <p class="lead text-center mb-10">서비스 이용, 도입·제휴 등 궁금한 점을 <a href="mailto:solubase@kakao.com">solubase@kakao.com</a>으로 보내 주시면 이메일로 답변드립니다.</p>
+                        <!-- 서버 없이 방문자의 메일 앱으로 solubase@kakao.com 앞 메일을 작성합니다 -->
+                        <form id="mail-form" class="needs-validation" novalidate>
+                            <div class="messages"></div>
+                            <div class="row gx-4">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-4">
+                                        <input id="form_name" type="text" name="name" class="form-control" placeholder="홍길동" required>
+                                        <label for="form_name">이름 *</label>
+                                        <div class="invalid-feedback"> 이름을 입력해 주세요. </div>
+                                    </div>
+                                </div>
+                                <!-- /column -->
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-4">
+                                        <input id="form_email" type="email" name="email" class="form-control" placeholder="name@example.com" required>
+                                        <label for="form_email">이메일 *</label>
+                                        <div class="invalid-feedback"> 올바른 이메일 주소를 입력해 주세요. </div>
+                                    </div>
+                                </div>
+                                <!-- /column -->
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-4">
+                                        <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="010-0000-0000">
+                                        <label for="form_phone">연락처 (선택)</label>
+                                    </div>
+                                </div>
+                                <!-- /column -->
+                                <div class="col-md-6">
+                                    <div class="form-select-wrapper mb-4">
+                                        <select class="form-select" id="form-select" name="department" required>
+                                            <option selected disabled value="">문의 유형을 선택해 주세요</option>
+                                            <option value="서비스 이용">서비스 이용</option>
+                                            <option value="도입·제휴">도입·제휴</option>
+                                            <option value="기타">기타</option>
+                                        </select>
+                                        <div class="invalid-feedback"> 문의 유형을 선택해 주세요. </div>
+                                    </div>
+                                </div>
+                                <!-- /column -->
+                                <div class="col-12">
+                                    <div class="form-floating mb-4">
+                                        <textarea id="form_message" name="message" class="form-control" placeholder="문의 내용" style="height: 150px" required></textarea>
+                                        <label for="form_message">문의 내용 *</label>
+                                        <div class="invalid-feedback"> 문의 내용을 입력해 주세요. </div>
+                                    </div>
+                                </div>
+                                <!-- /column -->
+                                <div class="col-12">
+                                    <div class="card bg-soft-primary mb-4">
+                                        <div class="card-body p-5 fs-14">
+                                            <p class="mb-2"><strong>개인정보 수집·이용 안내</strong></p>
+                                            <p class="mb-0">수집 항목: 이름, 이메일, 연락처(선택), 문의 내용 · 목적: 문의 확인 및 답변 · 보유 기간: 문의 처리 후 [1년] 보관 뒤 파기. 동의하지 않으실 수 있으나, 이 경우 문의 접수가 어렵습니다. 자세한 내용은 <a href="./privacy.html">개인정보처리방침</a>을 확인해 주세요.</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-check mb-4">
+                                        <input class="form-check-input" type="checkbox" value="agree" id="form_agree" name="agree" required>
+                                        <label class="form-check-label" for="form_agree">개인정보 수집·이용에 동의합니다. (필수)</label>
+                                        <div class="invalid-feedback"> 개인정보 수집·이용에 동의해 주세요. </div>
+                                    </div>
+                                </div>
+                                <!-- /column -->
+                                <div class="col-12 text-center">
+                                    <input type="submit" class="btn btn-primary rounded-pill mb-3" value="메일로 문의하기">
+                                    <p class="text-muted mb-1"><strong>*</strong> 표시는 필수 항목입니다.</p>
+                                    <p class="text-muted fs-14">버튼을 누르면 작성한 내용이 담긴 메일 창이 열립니다. 메일 창이 열리지 않으면 <a href="mailto:solubase@kakao.com">solubase@kakao.com</a>으로 직접 보내 주세요.</p>
+                                </div>
+                                <!-- /column -->
+                            </div>
+                            <!-- /.row -->
+                        </form>
+                        <!-- /form -->
+                        <script>
+                            document.getElementById('mail-form').addEventListener('submit', function (e) {
+                                e.preventDefault();
+                                var f = this;
+                                f.classList.add('was-validated');
+                                if (!f.checkValidity()) return;
+                                var v = function (id) { return document.getElementById(id).value.trim(); };
+                                var type = document.getElementById('form-select').value;
+                                var subject = '[홈페이지 문의] ' + type + ' - ' + v('form_name');
+                                var body = '이름: ' + v('form_name') + '\n'
+                                    + '이메일: ' + v('form_email') + '\n'
+                                    + '연락처: ' + (v('form_phone') || '-') + '\n'
+                                    + '문의 유형: ' + type + '\n\n'
+                                    + v('form_message');
+                                window.location.href = 'mailto:solubase@kakao.com'
+                                    + '?subject=' + encodeURIComponent(subject)
+                                    + '&body=' + encodeURIComponent(body);
+                            });
+                        </script>
+                    </div>
+                    <!-- /column -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+        <!-- /section -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="bg-dark text-inverse mt-5 mt-md-16">
+        <div class="container py-13 py-md-15">
+            <div class="row gy-6 gy-lg-0">
+                <div class="col-md-4 col-lg-3">
+                    <div class="widget">
+                        <div class="mb-4"><span class="brand-logo brand-light" role="img" aria-label="(주)솔루베이스"><span class="brand-mark"><span class="brand-s">S</span></span><span class="brand-name"><span class="brand-ko">솔루베이스</span><span class="brand-en">SOLUBASE</span></span></span></div>
+                        <p class="mb-4">© 2026 (주)솔루베이스. <br class="d-none d-lg-block" />All rights reserved.</p>
+                    </div>
+                    <!-- /.widget -->
+                </div>
+                <!-- /column -->
+                <div class="col-md-4 col-lg-3">
+                    <div class="widget">
+                        <h4 class="widget-title text-white mb-3">연락처</h4>
+                        <address class="pe-xl-15 pe-xxl-17">서울 성동구 광나루로 130 서울숲IT캐슬 1108호</address>
+                        <a href="mailto:solubase@kakao.com">solubase@kakao.com</a><br /> <!--[대표 전화번호]-->
+                    </div>
+                    <!-- /.widget -->
+                </div>
+                <!-- /column -->
+                <div class="col-md-4 col-lg-3">
+                    <div class="widget">
+                        <h4 class="widget-title text-white mb-3">바로가기</h4>
+                        <ul class="list-unstyled mb-0">
+                            <li><a href="./about.html">회사소개</a></li>
+                            <li><a href="https://www.sellerbase.co.kr" target="_blank" rel="noopener">셀러베이스</a></li>
+                            <li><a href="./news.html">뉴스룸</a></li>
+                            <!--<li><a href="./contact.html#form">문의하기</a></li>-->
+                        </ul>
+                    </div>
+                    <!-- /.widget -->
+                </div>
+                <!-- /column -->
+                <div class="col-md-12 col-lg-3">
+                    <div class="widget">
+                        <h4 class="widget-title text-white mb-3">사업자 정보</h4>
+                        <p class="mb-0">
+                            상호: (주)솔루베이스<br />
+                            대표자: 이제윤<br />
+                            사업자등록번호: 206-86-93630
+                        </p>
+                    </div>
+                    <!-- /.widget -->
+                </div>
+                <!-- /column -->
+            </div>
+            <!--/.row -->
+        </div>
+        <!-- /.container -->
+    </footer>
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <script src="./assets/js/plugins.js"></script>
+    <script src="./assets/js/theme.js"></script>
+</body>
+
+</html>

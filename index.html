@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="(주)솔루베이스는 네이버 스마트스토어·쿠팡 셀러를 위한 판매 분석 서비스 셀러베이스를 만듭니다. 상품 순위 추적, 경쟁 스토어 분석, 키워드 경쟁 강도 분석을 제공합니다.">
+  <meta name="keywords" content="솔루베이스, 셀러베이스, 스마트스토어 순위 추적, 네이버쇼핑 순위, 쿠팡 순위 추적, 키워드 분석, 셀러 분석 도구">
+  <meta name="author" content="(주)솔루베이스">
+  <title>(주)솔루베이스 | 셀러베이스 개발사</title>
+  <link rel="shortcut icon" href="./assets/img/favicon.png">
+  <link rel="stylesheet" href="./assets/css/plugins.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <!-- 한글 폰트: Pretendard -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <style>
+    body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .btn, .nav-link, .dropdown-item, .lead {
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    }
+    body { word-break: keep-all; }
+    /* 텍스트 로고 */
+    .brand-logo { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; line-height: 1; }
+    .brand-logo .brand-mark { width: 34px; height: 34px; border-radius: 9px; flex: none;
+      background: linear-gradient(135deg, #1b2b4b 0%, #2bb6d6 100%); display: inline-flex; align-items: center; justify-content: center; }
+    .brand-logo .brand-s { color: #fff; font-size: 1.25rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+    .brand-logo .brand-name { display: flex; flex-direction: column; gap: 3px; }
+    .brand-logo .brand-ko { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.02em; color: #1b2b4b; }
+    .brand-logo .brand-en { font-size: .6rem; font-weight: 700; letter-spacing: .22em; color: #2bb6d6; }
+    .brand-logo.brand-light .brand-ko { color: #fff; }
+    .brand-logo.brand-light .brand-en { color: #8fdcec; }
+    .navbar .logo-light { display: none !important; }
+    .navbar.navbar-dark .logo-light { display: inline-flex !important; }
+    .navbar.navbar-dark .logo-dark { display: none !important; }
+  </style>
+</head>
+
+<body>
+  <div class="content-wrapper">
+    <header class="wrapper bg-soft-primary">
+      <nav class="navbar navbar-expand-lg center-nav transparent navbar-light">
+        <div class="container flex-lg-row flex-nowrap align-items-center">
+          <div class="navbar-brand w-100">
+            <a href="./index.html">
+              <span class="brand-logo" role="img" aria-label="(주)솔루베이스"><span class="brand-mark"><span class="brand-s">S</span></span><span class="brand-name"><span class="brand-ko">솔루베이스</span><span class="brand-en">SOLUBASE</span></span></span>
+            </a>
+          </div>
+          <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
+            <div class="offcanvas-header d-lg-none">
+              <h3 class="text-white fs-30 mb-0">솔루베이스</h3>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="닫기"></button>
+            </div>
+            <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">회사소개</a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-item"><a class="dropdown-item" href="./about.html">회사 개요</a></li>
+                    <li class="nav-item"><a class="dropdown-item" href="./about.html#ceo">대표 인사말</a></li>
+                    <li class="nav-item"><a class="dropdown-item" href="./about.html#history">연혁</a></li>
+                    <li class="nav-item"><a class="dropdown-item" href="./contact.html#map">오시는 길</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">서비스</a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-item"><a class="dropdown-item" href="./service.html">셀러베이스 소개</a></li>
+                    <li class="nav-item"><a class="dropdown-item" href="./service.html#how">이용 방법</a></li>
+                    <li class="nav-item"><a class="dropdown-item" href="./service.html#use-cases">이런 분께 추천합니다</a></li>
+                    <li class="nav-item"><a class="dropdown-item" href="./service.html#partnership">도입·제휴</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="./news.html">뉴스룸</a></li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">고객지원</a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-item"><a class="dropdown-item" href="./contact.html#faq">자주 묻는 질문</a></li>
+                    <li class="nav-item"><a class="dropdown-item" href="./contact.html#form">문의하기</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <!-- /.navbar-nav -->
+              <div class="offcanvas-footer d-lg-none">
+                <div>
+                  <a href="mailto:[대표 이메일]" class="link-inverse">[대표 이메일]</a>
+                  <br /> [대표 전화번호]
+                </div>
+              </div>
+              <!-- /.offcanvas-footer -->
+            </div>
+            <!-- /.offcanvas-body -->
+          </div>
+          <!-- /.navbar-collapse -->
+          <div class="navbar-other w-100 d-flex ms-auto">
+            <ul class="navbar-nav flex-row align-items-center ms-auto">
+              <li class="nav-item">
+                <a href="https://www.sellerbase.co.kr" target="_blank" rel="noopener" class="btn btn-sm btn-primary rounded text-nowrap">셀러베이스 시작하기</a>
+              </li>
+              <li class="nav-item d-lg-none">
+                <button class="hamburger offcanvas-nav-btn"><span></span></button>
+              </li>
+            </ul>
+            <!-- /.navbar-nav -->
+          </div>
+          <!-- /.navbar-other -->
+        </div>
+        <!-- /.container -->
+      </nav>
+      <!-- /.navbar -->
+    </header>
+    <!-- /header -->
+
+    <!-- 1. 히어로 -->
+    <section class="wrapper bg-soft-primary">
+      <div class="container pt-10 pb-15 pt-md-14 pb-md-20 text-center">
+        <div class="row">
+          <div class="col-md-10 col-lg-8 col-xl-8 col-xxl-6 mx-auto mb-13" data-cues="slideInDown" data-group="page-title">
+            <h1 class="display-1 mb-4">셀러의 감을 데이터로 바꿉니다</h1>
+            <p class="lead fs-lg px-xl-12 px-xxl-6 mb-7">네이버 스마트스토어·쿠팡 셀러를 위한 판매 분석 서비스, 셀러베이스를 만드는 (주)솔루베이스입니다.</p>
+            <div class="d-flex justify-content-center" data-cues="slideInDown" data-group="page-title-buttons" data-delay="600">
+              <span><a href="https://www.sellerbase.co.kr" target="_blank" rel="noopener" class="btn btn-primary rounded mx-1">셀러베이스 무료로 시작하기</a></span>
+              <span><a href="./about.html" class="btn btn-outline-primary rounded mx-1">회사 소개 보기</a></span>
+            </div>
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+
+    <!-- 2~4. 기능 소개 (이미지 sa1~sa15는 셀러베이스 화면 캡처로 교체) -->
+    <section class="wrapper bg-light">
+      <div class="container pb-14 pb-md-16 mb-lg-21 mb-xl-23">
+          <div class="row gx-0 mb-16 mb-mb-20">
+              <div class="col-9 col-sm-10 col-lg-9 mx-auto mt-n15 mt-md-n20" data-cues data-group="images" data-delay="1500">
+                  <img class="img-fluid mx-auto rounded shadow-lg" data-cue="slideInUp" src="./assets/img/main/sa1.png" alt="" />
+                  <img class="position-absolute rounded shadow-lg" data-cue="slideInRight" src="./assets/img/main/sa2.png" style="top: 20%; right:-10%; max-width:70%; height: auto;" alt="" />
+                  <img class="position-absolute rounded shadow-lg" data-cue="slideInLeft" src="./assets/img/main/sa3.png" style="top: 10%; left:-10%; max-width:30%; height: auto;" alt="" />
+                  <img class="position-absolute rounded shadow-lg" data-cue="slideInLeft" src="./assets/img/main/sa4.png" style="bottom: 10%; left:-13%; max-width:70%; height: auto;" alt="" />
+              </div>
+              <!-- /column -->
+          </div>
+        <!-- /.row -->
+
+        <!-- 2. 순위 추적 -->
+        <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center mb-14 mb-md-18">
+            <div class="col-lg-6 position-relative">
+                <div class="shape rounded bg-pale-red rellax d-block" data-rellax-speed="0" style="top: 50%; left: 50%; width: 50%; height: 60%; transform: translate(-50%,-50%);z-index:0"></div>
+                <img class="img-fluid rounded shadow-lg mb-5" data-cue="fadeIn" data-delay="300" src="./assets/img/main/sa5.png" alt="키워드별 순위 추적 화면" />
+                <!--<div class="row gx-md-5 gy-5 position-relative">
+                    <div class="col-6">
+                        <img class="img-fluid rounded shadow-lg mb-5" data-cue="fadeIn" data-delay="300" src="./assets/img/photos/sa5.png" alt="키워드별 순위 추적 화면" />
+                        <img class="img-fluid rounded shadow-lg d-flex col-10 ms-auto" data-cue="fadeIn" data-delay="600" src="./assets/img/photos/sa6.jpg" srcset="./assets/img/photos/sa6@2x.jpg 2x" alt="가격비교 순위 화면" />
+                    </div>-->
+                    <!-- /column -->
+                    <!--<div class="col-6">
+                        <img class="img-fluid rounded shadow-lg my-5" data-cue="fadeIn" data-delay="900" src="./assets/img/photos/sa7.jpg" srcset="./assets/img/photos/sa7@2x.jpg 2x" alt="순위 변동 그래프" />
+                        <img class="img-fluid rounded shadow-lg d-flex col-10" data-cue="fadeIn" data-delay="1200" src="./assets/img/photos/sa8.jpg" srcset="./assets/img/photos/sa8@2x.jpg 2x" alt="쿠팡 순위 화면" />
+                    </div>-->
+                    <!-- /column -->
+                <!--</div>-->
+                <!-- /.row -->
+            </div>
+          <!--/column -->
+          <div class="col-lg-6">
+            <h3 class="display-4 mb-5">내 상품 순위, 매일 검색하지 않아도 됩니다</h3>
+            <p class="mb-5">키워드별 네이버쇼핑 순위와 가격비교 묶음 순위를 자동으로 기록하고, 어제와 비교해 얼마나 오르고 내렸는지 보여 줍니다. 쿠팡 검색 1페이지 노출 여부도 함께 확인할 수 있습니다.</p>
+            <div class="row gy-3">
+              <div class="col-xl-6">
+                <ul class="icon-list bullet-bg bullet-soft-red mb-0">
+                  <li><span><i class="uil uil-check"></i></span><span>키워드별 네이버쇼핑 순위 추적</span></li>
+                  <li class="mt-3"><span><i class="uil uil-check"></i></span><span>가격비교 묶음 상품 순위 추적</span></li>
+                </ul>
+              </div>
+              <!--/column -->
+              <div class="col-xl-6">
+                <ul class="icon-list bullet-bg bullet-soft-red mb-0">
+                  <li><span><i class="uil uil-check"></i></span><span>날짜별 순위 변동 그래프</span></li>
+                  <li class="mt-3"><span><i class="uil uil-check"></i></span><span>쿠팡 1페이지 노출 확인</span></li>
+                </ul>
+              </div>
+              <!--/column -->
+            </div>
+            <!--/.row -->
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+
+        <!-- 3. 경쟁 스토어 분석 -->
+        <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center mb-14 mb-md-18">
+            <div class="col-lg-6 position-relative order-lg-2">
+                <div class="shape rounded bg-pale-green rellax d-block" data-rellax-speed="0" style="top: 50%; left: 50%; width: 50%; height: 60%; transform: translate(-50%,-50%);z-index:0"></div>
+                <img class="img-fluid rounded shadow-lg my-5 d-flex ms-auto" data-cue="fadeIn" data-delay="300" src="./assets/img/main/sa6.png" alt="경쟁 스토어 베스트 상품" />
+                <!--<div class="row gx-md-5 gy-5 position-relative">
+      <div class="col-5">
+        <img class="img-fluid rounded shadow-lg my-5 d-flex ms-auto" data-cue="fadeIn" data-delay="300" src="./assets/img/photos/sa9.jpg" srcset="./assets/img/photos/sa9@2x.jpg 2x" alt="경쟁 스토어 베스트 상품" />
+        <img class="img-fluid rounded shadow-lg d-flex col-10 ms-auto" data-cue="fadeIn" data-delay="600" src="./assets/img/photos/sa10.jpg" srcset="./assets/img/photos/sa10@2x.jpg 2x" alt="카테고리 상품 구성" />
+      </div>-->
+                <!-- /column -->
+                <!--<div class="col-7">
+      <img class="img-fluid rounded shadow-lg mb-5" data-cue="fadeIn" data-delay="900" src="./assets/img/photos/sa11.jpg" srcset="./assets/img/photos/sa11@2x.jpg 2x" alt="스토어 채널 분석" />
+      <img class="img-fluid rounded shadow-lg d-flex col-11" data-cue="fadeIn" data-delay="1200" src="./assets/img/photos/sa12.jpg" srcset="./assets/img/photos/sa12@2x.jpg 2x" alt="상품 변화 기록" />
+    </div>-->
+                <!-- /column -->
+                <!--</div>-->
+                <!-- /.row -->
+            </div>
+          <!--/column -->
+          <div class="col-lg-6">
+            <h3 class="display-4 mb-5">경쟁 스토어가 무엇을 잘 파는지 보입니다</h3>
+            <p class="mb-5">관심 있는 스마트스토어를 등록하면 베스트 상품과 카테고리별 상품 구성을 한 화면에서 분석합니다. 경쟁사의 주력 상품이 어떻게 바뀌는지 꾸준히 지켜볼 수 있습니다.</p>
+            <div class="row gy-3">
+              <div class="col-xl-6">
+                <ul class="icon-list bullet-bg bullet-soft-green mb-0">
+                  <li><span><i class="uil uil-check"></i></span><span>실시간·일간·주간·월간 베스트 상품</span></li>
+                  <li class="mt-3"><span><i class="uil uil-check"></i></span><span>카테고리별 상품 구성</span></li>
+                </ul>
+              </div>
+              <!--/column -->
+              <div class="col-xl-6">
+                <ul class="icon-list bullet-bg bullet-soft-green mb-0">
+                  <li><span><i class="uil uil-check"></i></span><span>상품 변화 기록</span></li>
+                  <li class="mt-3"><span><i class="uil uil-check"></i></span><span>관심 스토어 관리</span></li>
+                </ul>
+              </div>
+              <!--/column -->
+            </div>
+            <!--/.row -->
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+
+        <!-- 4. 키워드 분석 -->
+        <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+            <div class="col-lg-6 position-relative">
+                <div class="shape rounded bg-pale-yellow rellax d-block" data-rellax-speed="0" style="top: 50%; left: 50%; width: 50%; height: 60%; transform: translate(-50%,-50%);z-index:0"></div>
+                <img class="img-fluid rounded shadow-lg d-flex ms-auto" data-cue="fadeIn" data-delay="300" src="./assets/img/main/sa7.png" alt="연관 키워드 화면" />
+                <img class="img-fluid rounded shadow-lg d-flex ms-auto" data-cue="fadeIn" data-delay="300" src="./assets/img/main/sa8.png" alt="연관 키워드 화면" />
+                <img class="img-fluid rounded shadow-lg d-flex ms-auto" data-cue="fadeIn" data-delay="300" src="./assets/img/main/sa9.png" alt="연관 키워드 화면" />
+                <!--<div class="row gx-md-5 gy-5 position-relative align-items-center">
+    <div class="col-6">
+      <img class="img-fluid rounded shadow-lg d-flex ms-auto" data-cue="fadeIn" data-delay="300" src="./assets/img/photos/sa13.jpg" srcset="./assets/img/photos/sa13@2x.jpg 2x" alt="연관 키워드 화면" />
+    </div>-->
+                <!-- /column -->
+                <!--<div class="col-6">
+      <img class="img-fluid rounded shadow-lg mb-5" data-cue="fadeIn" data-delay="900" src="./assets/img/photos/sa14.jpg" srcset="./assets/img/photos/sa14@2x.jpg 2x" alt="키워드별 상품 수 화면" />
+      <img class="img-fluid rounded shadow-lg d-flex col-10" data-cue="fadeIn" data-delay="1200" src="./assets/img/photos/sa15.jpg" srcset="./assets/img/photos/sa15@2x.jpg 2x" alt="블로그 순위 화면" />
+    </div>-->
+                <!-- /column -->
+                <!--</div>-->
+                <!-- /.row -->
+            </div>
+          <!--/column -->
+          <div class="col-lg-6">
+            <h3 class="display-4 mb-5">경쟁이 덜한 키워드를 숫자로 고릅니다</h3>
+            <p class="mb-5">연관 키워드와 키워드별 네이버쇼핑 상품 수를 함께 보여 줘 경쟁 강도를 한눈에 비교할 수 있습니다. 블로그와 스마트플레이스 노출 순위까지 같은 곳에서 관리하세요.</p>
+            <div class="row gy-3">
+              <div class="col-xl-6">
+                <ul class="icon-list bullet-bg bullet-soft-yellow mb-0">
+                  <li><span><i class="uil uil-check"></i></span><span>연관 키워드 조회</span></li>
+                  <li class="mt-3"><span><i class="uil uil-check"></i></span><span>키워드별 상품 수(경쟁 강도)</span></li>
+                </ul>
+              </div>
+              <!--/column -->
+              <div class="col-xl-6">
+                <ul class="icon-list bullet-bg bullet-soft-yellow mb-0">
+                  <li><span><i class="uil uil-check"></i></span><span>네이버 블로그 노출 순위</span></li>
+                  <li class="mt-3"><span><i class="uil uil-check"></i></span><span>스마트플레이스 순위</span></li>
+                </ul>
+              </div>
+              <!--/column -->
+            </div>
+            <!--/.row -->
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+
+    <!-- 5. 이용 환경 (소개 영상이 생기면 figure를 원래 video 태그로 되돌리기) -->
+    <section class="wrapper bg-soft-primary">
+      <div class="container py-14 pt-md-16 pt-lg-0 pb-md-16">
+        <div class="row text-center" data-cue="slideInUp">
+          <div class="col-lg-10 mx-auto">
+            <div class="mt-lg-n20 mt-xl-n22 position-relative">
+              <div class="shape bg-dot red rellax w-16 h-18" data-rellax-speed="1" style="top: 1rem; left: -3.9rem;"></div>
+              <div class="shape rounded-circle bg-line primary rellax w-18 h-18" data-rellax-speed="1" style="bottom: 2rem; right: -3rem;"></div>
+              <figure class="rounded shadow-lg mb-0"><img src="./assets/img/photos/movie.jpg" alt="셀러베이스 웹·앱·크롬 확장 화면" /></figure>
+            </div>
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+        <div class="row text-center mt-12">
+          <div class="col-lg-9 mx-auto">
+            <h3 class="display-4 mb-0 text-center px-xl-10 px-xxl-15">웹 · 앱 · 크롬 확장, 어디서나 셀러베이스</h3>
+            <div class="row gx-lg-8 gx-xl-12 process-wrapper text-center mt-9" data-cues="slideInUp" data-group="process">
+              <div class="col-md-4"> <img src="./assets/img/icons/lineal/shield.svg" class="svg-inject icon-svg icon-svg-md text-red mb-3" alt="" />
+                <h4 class="mb-1">1. 웹 서비스</h4>
+                <p><a href="https://www.sellerbase.co.kr" target="_blank" rel="noopener">sellerbase.co.kr</a>에 접속해 바로 분석을 시작하세요.</p>
+              </div>
+              <!--/column -->
+              <div class="col-md-4"> <img src="./assets/img/icons/lineal/savings.svg" class="svg-inject icon-svg icon-svg-md text-green mb-3" alt="" />
+                <h4 class="mb-1">2. 안드로이드 앱</h4>
+                <p>Google Play에서 "셀러베이스"를 설치하고 이동 중에도 순위를 확인하세요.</p>
+              </div>
+              <!--/column -->
+              <div class="col-md-4"> <img src="./assets/img/icons/lineal/loading.svg" class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />
+                <h4 class="mb-1">3. 크롬 확장 프로그램</h4>
+                <p>크롬 웹스토어의 "셀러베이스 도구"로 네이버쇼핑을 보면서 바로 분석하세요.</p>
+              </div>
+              <!--/column -->
+            </div>
+            <!--/.row -->
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+
+    <!-- 6. 숫자로 보는 셀러베이스 (후기 슬라이더·고객사 로고는 실제 자료가 생기면 다시 추가) -->
+    <section class="wrapper bg-light">
+      <div class="container py-14 py-md-17">
+        <div class="row gx-lg-8 gx-xl-12 gy-6 align-items-center">
+            <div class="col-lg-7 position-relative">
+                <div class="shape bg-dot primary rellax w-18 h-18" data-rellax-speed="1" style="top: 0; left: -1.4rem; z-index: 0;"></div>
+                <figure class="rounded mt-md-10 position-relative"><img src="./assets/img/main/g5.png" alt="셀러베이스 분석 화면"></figure>
+                <!--<div class="row gx-md-5 gy-5">
+                    <div class="col-md-6" data-cue="fadeIn">
+                        <figure class="rounded mt-md-10 position-relative"><img src="./assets/img/main/g5.png" alt="셀러베이스 분석 화면"></figure>
+                    </div>-->
+                    <!--/column -->
+                    <!--<div class="col-md-6">
+                        <div class="row gx-md-5 gy-5">
+                            <div class="col-md-12 order-md-2" data-cue="fadeIn" data-delay="900">
+                                <figure class="rounded"><img src="./assets/img/photos/g6.jpg" srcset="./assets/img/photos/g6@2x.jpg 2x" alt="셀러베이스 앱 화면"></figure>
+                            </div>-->
+                            <!--/column -->
+                            <!--<div class="col-md-10" data-cue="fadeIn" data-delay="300">
+                                <div class="card bg-pale-primary text-center">
+                                    <div class="card-body py-11 counter-wrapper">
+                                        <h3 class="counter text-nowrap">7</h3>
+                                        <p class="mb-0">분석 기능</p>
+                                    </div>-->
+                                    <!--/.card-body -->
+                                <!--</div>-->
+                                <!--/.card -->
+                            <!--</div>-->
+                            <!--/column -->
+                        <!--</div>-->
+                        <!--/.row -->
+                    <!--</div>-->
+                    <!--/column -->
+                <!--</div>-->
+                <!--/.row -->
+            </div>
+          <!--/column -->
+          <div class="col-lg-5 mt-5">
+            <h3 class="display-4 mb-5">숫자로 보는 셀러베이스</h3>
+            <p class="mb-6">흩어져 있던 판매 데이터를 한곳에 모아, 셀러가 감이 아닌 숫자로 결정하도록 돕습니다.</p>
+            <div class="row gy-6 text-center">
+              <div class="col-4">
+                <h3 class="counter mb-1">2</h3>
+                <p class="mb-0">지원 마켓<br />(네이버·쿠팡)</p>
+              </div>
+              <div class="col-4">
+                <h3 class="counter mb-1">7</h3>
+                <p class="mb-0">분석 기능</p>
+              </div>
+              <div class="col-4">
+                <h3 class="counter mb-1">3</h3>
+                <p class="mb-0">이용 환경<br />(웹·앱·확장)</p>
+              </div>
+            </div>
+            <!--/.row -->
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+
+    <!-- 8. 최근 소식 (요금제 자리) -->
+    <section class="wrapper bg-soft-primary">
+      <div class="container pt-14 pb-18 pt-md-17 pb-md-22 text-center">
+        <div class="row">
+          <div class="col-lg-10 col-xl-9 col-xxl-8 mx-auto">
+            <h3 class="display-4 mb-15 mb-md-6 px-lg-10">솔루베이스의 최근 소식</h3>
+          </div>
+          <!--/column -->
+        </div>
+        <!--/.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+    <section class="wrapper bg-light">
+      <div class="container py-14 py-md-16">
+        <div class="position-relative mt-n22 mt-md-n24">
+          <div class="shape bg-dot primary rellax w-16 h-18" data-rellax-speed="1" style="top: 2rem; right: -2.4rem;"></div>
+          <div class="shape rounded-circle bg-line red rellax w-18 h-18 d-none d-lg-block" data-rellax-speed="1" style="bottom: 0.5rem; left: -2.5rem;"></div>
+          <div class="row gy-6">
+            <div class="col-md-6 col-lg-4">
+              <div class="card shadow-lg h-100">
+                <div class="card-body">
+                  <span class="badge bg-pale-primary text-primary rounded-pill mb-3">업데이트</span>
+                  <h4 class="card-title"><a href="./news.html?type=updates" class="link-dark">쿠팡 순위 추적 기능 추가</a></h4>
+                  <p class="mb-0">쿠팡 검색 1페이지에서 내 상품이 몇 위에 노출되는지 확인할 수 있습니다.</p>
+                </div>
+              </div>
+            </div>
+            <!--/column -->
+            <div class="col-md-6 col-lg-4">
+              <div class="card shadow-lg h-100">
+                <div class="card-body">
+                  <span class="badge bg-pale-primary text-primary rounded-pill mb-3">출시</span>
+                  <h4 class="card-title"><a href="./news.html?type=notice" class="link-dark">크롬 확장 "셀러베이스 도구" 출시</a></h4>
+                  <p class="mb-0">네이버쇼핑을 보면서 바로 순위와 상품을 분석하는 크롬 확장 프로그램을 내놓았습니다.</p>
+                </div>
+              </div>
+            </div>
+            <!--/column -->
+            <div class="col-md-6 offset-md-3 col-lg-4 offset-lg-0">
+              <div class="card shadow-lg h-100">
+                <div class="card-body">
+                  <span class="badge bg-pale-primary text-primary rounded-pill mb-3">출시</span>
+                  <h4 class="card-title"><a href="./news.html?type=notice" class="link-dark">셀러베이스 안드로이드 앱 출시</a></h4>
+                  <p class="mb-0">Google Play에서 셀러베이스 앱을 내려받아 이동 중에도 순위를 확인하세요.</p>
+                </div>
+              </div>
+            </div>
+            <!--/column -->
+          </div>
+          <!--/.row -->
+          <div class="text-center mt-10">
+            <a href="./news.html" class="btn btn-outline-primary rounded">소식 더 보기</a>
+          </div>
+        </div>
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+
+    <!-- 9. 하단 CTA -->
+    <section class="wrapper image-wrapper bg-auto no-overlay bg-image text-center bg-map" data-image-src="./assets/img/map.png">
+      <div class="container pt-0 pb-14 pt-md-18 pb-md-18">
+        <div class="row">
+          <div class="col-lg-10 col-xl-9 col-xxl-8 mx-auto">
+            <h3 class="display-4 mb-8 px-lg-12">지금 무료로 내 상품 순위를 확인해 보세요</h3>
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+        <div class="d-flex justify-content-center" data-cues="slideInDown" data-group="join">
+          <span><a href="https://www.sellerbase.co.kr" target="_blank" rel="noopener" class="btn btn-primary rounded mx-1">셀러베이스 무료로 시작하기</a></span>
+          <span><a href="./contact.html" class="btn btn-outline-primary rounded mx-1">도입·제휴 문의</a></span>
+        </div>
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- 10. 푸터 -->
+  <footer class="bg-dark text-inverse mt-5 mt-md-16">
+    <div class="container py-13 py-md-15">
+      <div class="row gy-6 gy-lg-0">
+        <div class="col-md-4 col-lg-3">
+          <div class="widget">
+            <div class="mb-4"><span class="brand-logo brand-light" role="img" aria-label="(주)솔루베이스"><span class="brand-mark"><span class="brand-s">S</span></span><span class="brand-name"><span class="brand-ko">솔루베이스</span><span class="brand-en">SOLUBASE</span></span></span></div>
+            <p class="mb-4">© 2026 (주)솔루베이스. <br class="d-none d-lg-block" />All rights reserved.</p>
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+        <div class="col-md-4 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title text-white mb-3">연락처</h4>
+            <address class="pe-xl-15 pe-xxl-17">서울 성동구 광나루로 130 서울숲IT캐슬 1108호</address>
+            <a href="mailto:solubase@kakao.com">solubase@kakao.com</a><br /> <!--[대표 전화번호]-->
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+        <div class="col-md-4 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title text-white mb-3">바로가기</h4>
+            <ul class="list-unstyled mb-0">
+              <li><a href="./about.html">회사소개</a></li>
+              <li><a href="https://www.sellerbase.co.kr" target="_blank" rel="noopener">셀러베이스</a></li>
+              <li><a href="./news.html">뉴스룸</a></li>
+              <!--<li><a href="./contact.html#form">문의하기</a></li>-->
+            </ul>
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+        <div class="col-md-12 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title text-white mb-3">사업자 정보</h4>
+            <p class="mb-0">
+                상호: (주)솔루베이스<br />
+                대표자: 이제윤<br />
+                사업자등록번호: 206-86-93630
+            </p>
+          </div>
+          <!-- /.widget -->
+        </div>
+        <!-- /column -->
+      </div>
+      <!--/.row -->
+    </div>
+    <!-- /.container -->
+  </footer>
+  <div class="progress-wrap">
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+    </svg>
+  </div>
+  <script src="./assets/js/plugins.js"></script>
+  <script src="./assets/js/theme.js"></script>
+</body>
+
+</html>
